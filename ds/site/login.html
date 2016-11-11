@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?915d820c1ff22f1193bf4eece86e392b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>Dashboard - DeepShare Admin</title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="Bookmark" href="/assets/images/favicon.ico">
+    <!-- md5 settings handler -->
+    <script src="/assets/js/md5.js"></script>
+    <!-- page specific plugin styles -->
+    <style>
+    body {
+        background-image: url("/assets/images/bg.png");
+        background-size: 100% auto;
+    }
+
+    ​ #login {
+        margin: auto;
+        clear: both;
+        margin-left: 43%;
+        margin-top: 3%;
+    }
+
+    ​ #btn {
+        margin: auto;
+        clear: both;
+        margin-left: 38%;
+        margin-top: 1%;
+        ​
+    }
+
+    .pop-box {
+        z-index: 9999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        display: none;
+    }
+
+    .pop-box3 {
+        z-index: 9999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+
+    .pop-box1 {
+        z-index: 8999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+
+    .pop-box2 {
+        z-index: 7999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+    </style>
+</head>
+​
+
+<body style='background-image: url("/assets/images/bg_blue.png"); background-size: 100% auto;'>
+    <div id='pop-div0' ; class="pop-box" style="width:60%; height:70%; left:20%; top:15%">
+        <div id='pop-div1' style='width: 100%; height:94%; border-radius:5px;' class="form-horizontal pop-box3">
+            <div class="form-group" style="height : 10%">
+                <div class="text-center">
+                    <h4 style="">  服务条款  </h4>
+                    <button type="button" class="btn" style="background-color:white;float:right;position:relative;right:20px; bottom:32px;color:white;border-radius:0px;" onclick="hideDiv('pop-div0');">
+                        <small style="color:grey">X</small>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group" style="height : 70%">
+                <div style=" margin-left: 5%; width : 90%; height : 100%; overflow: scroll; word-wrap: break-word; word-break: break-all; ">
+                    <p>1. 奇点机智网络平台的所有权和运营权归北京奇点机智信息技术有限公司（以下简称“奇点机智”）所有，并保留随时变更平台提供的信息和服务的权利。奇点机智所提供的相关信息和服务的使用者（以下简称“用户”）在使用之前必须同意以下的所有条款。</p>
+                    <p>2. 用户在奇点机智平台上发布的信息内容由用户及奇点机智共同所有，任何其他组织或个人未经用户本人授权同意，不得复制、转载、擅改其内容。用户不得在奇点机智平台发布和散播任何形式的含有下列内容的信息：</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1）为相关法律法规所禁止；</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2）有悖于社会公共秩序和善良风俗；</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3）损害他人合法权益；</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4）其他奇点机智认为不适当在本平台发布的内容。 奇点机智保留删除和变更上述相关信息的权利。 </p>
+                    <p>3. 用户应保证在奇点机智平台的注册信息的真实、准确和完整，并在资料变更时及时更新相关信息。对于任何信息不实所导致的用户本人或第三方损害，奇点机智不承担任何责任。用户应妥善保管个人注册信息及登录密码等资料，用户将对以其注册用户名进行的所有活动和事件负法律责任。</p>
+                    <p>4. 用户同意使用奇点机智平台服务所潜在的风险及其一切可能的后果将完全由自己承担，奇点机智对这些可能的风险和后果不承担任何责任。</p>
+                    <p>5. 奇点机智不保证奇点机智平台提供的服务能够满足所有用户的所有要求，也无法保证已存在的服务不会中断，对这些服务的及时性、安全性、准确性也不作保证。对于因系统维护或升级的需要而需暂停网络服务的情形，奇点机智将视具体情形尽可能事先在重要页面发布通知。同时，奇点机智保留在不事先通知用户的情况下中断或终止部分或全部服务的权利，对于因服务的中断或终止而造成的用户或第三方的任何损失，奇点机智不承担任何责任。</p>
+                    <p>6. 用户同意尊重和维护奇点机智平台以及其他用户的合法权益。用户因违反有关法律、法规或协议规定中的任何条款而给奇点机智或任何第三方造成的损失，用户同意承担由此造成的一切损害赔偿责任。</p>
+                    <p>7. 在适用法律允许的范围内，奇点机智保留对本协议任何条款的解释权和随时变更的权利。 </p>奇点机智可能会随时根据需要修改本协议的任一条款。如发生此类变更，奇点机智会提供新版本的条款。用户在变更后对奇点机智平台服务的使用将视为已完全接受变更后的条款。</p>
+                    <p>8. 本协议在根据下述规定终止前，将会一直适用。当下列情况出现时，奇点机智可以随时中止与用户的协议：</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) 用户违反了本协议中的任何规定；</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) 法律法规要求终止本协议;</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) 奇点机智认为实际情形不再适宜继续执行本协议。 </p>
+                    <p>9. 本协议及因本协议产生的一切法律关系及纠纷，均适用中华人民共和国法律。用户与奇点机智在此同意以奇点机智营业所在地法院管辖。</p>
+                </div>
+            </div>
+            <div class="form-group" style="height:20%">
+                <div style='margin:auto;clear:both;' class='text-center'>
+                    <img src="/assets/images/btn_agree.png" style="width:15%" onclick="hideDiv('pop-div0'); checkthebox()">
+                </div>
+            </div>
+        </div>
+        <div class='pop-box1' style='margin-left: 5%; width: 90%; height:97%; opacity:0.5; border-radius:5px;'>
+        </div>
+        <div class='pop-box2' style='margin-left: 10%; width: 80%; height:100%; opacity:0.5; border-radius:5px;'>
+        </div>
+    </div>
+    <div id='pop-div' ; class="pop-box" style="width:60%; height:70%; left:20%; top:15%">
+        <div id='pop-div1' style='width: 100%; height:94%; border-radius:5px;' class="form-horizontal pop-box3">
+            <div class="form-group" style="height : 10%">
+                <div class="text-center">
+                    <h4 style="">  隐私政策  </h4>
+                    <button type="button" class="btn" style="background-color:white;float:right;position:relative;right:20px; bottom:32px;color:white;border-radius:0px;" onclick="hideDiv('pop-div');">
+                        <small style="color:grey">X</small>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group" style="height : 70%">
+                <div style=" margin-left: 5%; width : 90%; height : 100%; overflow: scroll; word-wrap: break-word; word-break: break-all; ">
+                    <p>北京奇点机智信息技术有限公司（统称“我们”）承诺保护客户的隐私，特别是访问并使用我们网站的客户的隐私。本隐私政策解释了我们（包括我们的母公司、子公司和关联人）如何收集和使用来自或关于您和您的最终用户的个人信息。</p>
+                    <p>一旦您安装、使用、注册或以其他方式访问我们的服务，那就意味着您已经全部接受本政策，并且在知情的基础上明确同意按本政策的规定处理、使用和披露您及您客户的信息。如果您不接受本政策，请不要安装、使用、注册或以其他方式访问我们的服务。我们有权随时修改本政策的权利，并会在修改后于本页面公布修改后的文本。因此，请经常查看本页。如果您继续使用我们的服务，那就意味着您接受对本政策的修改。</p>
+                    <p>本政策适用于我们提供的网站、SDKs、APIs、插件、组件、工具以及不断创新研发的产品及服务，但不适用于展示在、链接到或再封装我们的服务的那些采用别的隐私政策、由第三方提供的服务。虽然第三方展示在、连接到或再封装我们的服务，但我们并不了解或控制他们的行为，因此也不为他们的行为负责。在您已经查看并接受他们的隐私政策之前，不要访问或使用他们的服务。</p>
+                    <p>若您允许我们与第三方网站共享的信息，则同时需受第三方服务条款和隐私权政策的约束。</p>
+                    <p><b>1. 我们如何收集和使用信息</b></p>
+                    <p>使用我们的服务:</p>
+                    <p>您需要先同意我们的服务条款及本隐私权政策，成为我们的网站注册账户，才能使用我们的服务。在您注册时，我们会要求您提供个人信息，例如您的姓名、电子邮件地址和密码、电话号码等。这些信息视为您的身份识别信息，我们用这些信息来管理您的账户，并为您提供一系列服务的访问。我们也可能利用这些信息来通知您最新的产品更新和市场活动。 通过DeepShare SDK/API：
+                    </p>
+                    <p>DeepShare帮助您通过深度链接技术降低用户使用门槛、简化社会化分享流程，比如用户首次打开APP即可自动跳转至相关内容页，同时也可以个性化定制用户欢迎页面。在APP开发者授权的情况下，DeepShare可协助开发者进行相关数据监测、统计和分析。</p>
+                    <p>当您在移动应用里集成了DeepShare SDK或API之后，您的应用就通过DeepShare SDK/API传送数据到我们的服务器。</p>
+                    <p>可以通过DeepShare SDK/API收集并存储的数据包括但不限于：SDK版本、时间戳、应用标识符、应用程序版本、应用分发渠道、开放性独立设备标识符（Open UDID）、iOS广告标识符（IDFA)、网卡（MAC)地址、国际移动设备识别码（IMEI）、设备型号、终端制造厂商、终端设备操作系统版本、时区和网络状态（WiFi等)。我们可能对MAC地址和IMEI等可以用于识别设备的信息进行加密，从而提高对隐私的保护。</p>
+                    <p>您的信息保护措施方面，我们将使用物理、技术和行政管理安全措施来保护您的信息，以降低丢失、误用、非授权访问、披露和更改的风险。采取的保障措施包括：防火墙和数据加密、数据中心的物理访问控制以及信息访问授权控制。</p>
+                    <p>在用户账户设置方面，您随时可以登录自己的账户并查看账户设置和您的信息，来查看和修改您的个人信息。您也可以通过我们的网站注销账户。如果您注销了您的账户，就会在数据库中将其账户标记为“已注销”，但可能仍会保留您账户中的个人信息，以收取欠费、解决争议、排除问题、协助任何调查、避免欺诈、实施服务条款或采取法律要求或允许的其他措施。</p>
+                    <p><b>2. 我们如何使用您的信息</b></p>
+                    <p>我们使用收集来的信息为您提供更加深入的用户行为分析，向您展示这些收集到的数据以帮助您更好地分析用户行为，提高产品质量并更有针对性地投放广告。</p>
+                    <p>我们也可能用从您那里收集到的个人信息：(1)开展您请求的服务；(2)改善我们的服务；(3)联系您解决问题；(4)向您发送关于我们的服务的技术通知、发票、确认、更新安全警报、支持和行政信息等；(5)向您介绍我们和我们的合作伙伴的产品和服务；(6)进行研究；和(7) 通过减少需要您输入信息使我们的服务更容易使用。</p>
+                    <p><b>3. 您对最终用户数据的使用</b></p>
+                    <p>我们不控制我们的客户如何使用属于或关于他们的最终用户的数据，也不应为此负责，尽管我们期待我们的客户以符合他们的法律和道德义务的方式使用他们最终用户的数据。最终用户应该审查我们的客户的政策，从而了解他们如何使用最终用户的数据。</p>
+                    <p>如果您接受本政策并把我们的SDK或API集成到您的应用中，您已经同意并向我们保证您所有的最终用户同意我们收集和使用其信息，并且遵守本政策的全部规定。</p>
+                    您在此进一步保证，您的最终用户不会因为我们按照本政策的规定收集、使用、披露对其的信息而对我们产生任何形式的诉求、诉请、投诉等。如果，您的用户因本政策项下的对其的信息的收集、使用、披露而致使我们遭受任何形式的诉请、诉求以及投诉等，您将负责全面给予解决；如果导致我们发生任何形式的损失，您将负责给予我们赔偿。</p>
+                    <p><b>4. 我们如何披露或与第三方分享信息</b></p>
+                    <p>除非本政策另有规定，未经您的同意，我们不会向第三方（关联方除外）透露通过我们的服务收集的个人信息。但下列情况均不受此限：</p>
+                    <p>第三方供应商、顾问和其他服务供应商为我们工作并需要访问您的信息以提供他们的服务;</p>
+                    <p>用于满足合法要求或法定程序；</p>
+                    <p>在紧急情况下保护我们、客户或任何其他人的人身安全和财产安全；</p>
+                    <p>我们需要保护我们、我们的代理人、客户、用户和其他人的权益和财产，包括执行我们的协议、政策和使用条款；</p>
+                    <p>我们正在或拟进行企业并购、重组、出售全部或部分股份和/或资产等重大变化，包括但不限于其尽职调查过程。</p>
+                    <p>我们也可能与第三方以不能直接识别您或您用户的形式分享聚合或匿名信息。</p>
+                    <p><b>5. 更新您的信息</b></p>
+                    <p>我们将努力使您能审阅、更新或更正您存在我们这里的信息。如需审阅、更新或更正，请访问我们的网站并登录您的账户。为了辨别您身份、核实您的请求并处理您的请求，我们将需要关于您的充分信息。请注意，即使根据您的请求变更或删除了您的信息，我们为解决争议、执行用户协议并遵守与安全、诚信、服务运营相关的技术和法律要求仍可能保留某些您的数据。</p>
+                    <p><b>6. 数据的保存和正确性</b></p>
+                    <p>我们根据本政策保存数据至本政策规定的目的实现时为止，除非法律要求或允许保存更长时间。之后，如果为本政策规定的目的不再需要，我们可能在合理时间内完全删除我们所保存的数据。我们不去核实个人信息是否正确。</p>
+                    <p>虽然有上述规定，我们仍可能保存某些解决争议、执行用户协议、满足技术和法律要求和维护我们的服务的安全完整运行所需的数据。</p>
+                    <p><b>7. 我们如何保护您的信息 </b></p>
+                    <p>我们按照行业通行标准合理保护我们所保存的信息的安全、完整和秘密。您个人信息的访问权限仅限于为根据本政策完成工作任务或进行技术维护工作需要处理您个人信息的人员。我们收集的信息保存于不向公众开放的安全运行环境之中。为避免未经授权访问您的信息，我们将其保存在有防火墙保护并可能加密的服务器之中。但是，没有任何系统是绝对安全的。即使我们做出了很大努力，仍有可能无法杜绝对您的个人信息的非法访问。此外，由于无法判断他人的陈述是否属实，我们可能会被不可靠的、有误导性的或非法的信息所蒙蔽。</p>
+                    <p>如果您或您的最终用户不接受本政策并提供我们所要求的信息，那么您将无法使用我们的服务或使用我们提供的全部功能。但您需要了解，提供该信息意味着您和您的最终用户已经充分理解这些信息可能会有被盗、非法拥有或滥用的风险，以及由此带来的您和您的最终用户的人身安全、财产和声誉等方面的损失。</p>
+                    <p><b>8. 我们关于未成年人的政策</b></p>
+                    <p>我们不会在知情的情况下吸引或收集未成年人的个人信息，也不会允许未成年人注册成为我们的客户。除非所在地法律允许并且监护人同意，未成年人请不要在我们这里注册账户或发送自己的姓名、住址、电话、邮件地址等个人信息给我们。如果我们不小心收集到了未成年人的信息，我们在知情后会尽快删除。如果您认为我们可能不当地持有来自于或关于未成年人的信息，请联系我们。</p>
+                    <p><b>9. 违约知会义务</b></p>
+                    <p>如果您发现您的用户或者其他享用我们服务的客户违反本政策、服务协议，给您及您的其他用户造成或可能造成任何来自数据信息泄露的损害，或未遵守相关适用的法律、法规、政策的情况，请您及时知会我们，我们会立即给予处理，并及时反馈。</p>
+                    <p><b>10. 法律适用</b></p>
+                    <p>您的数据由住所地位于中国北京海淀区中关村鼎好大厦A座3楼TechCode的北京奇点机智信息技术有限公司所控制。本政策以及我们对您的信息的使用受此住所地的法律所管辖，请注意该法律和您所在地的法律间的区别。</p>
+                    <p><b>11. 争议解决</b></p>
+                    <p>我们会定期评估本协议的遵守情况。如果我们收到了您的正式书面投诉，我们会尝试与您直接联系解决。我们会配合国家有关部门，包括数据保护部门，解决您和我们未能友好解决的任何关于个人信息收集、使用、转移、披露的投诉。任何由本政策产生或与本政策的违反、终止、效力相关的争议、争端或主张应由我们住所地有管辖权的法庭解决。</p>
+                    <p><b>12. 联系我们</b></p>
+                    <p>
+                        如果您对本政策有任何问题或建议需要联系我们，请发邮件到: support@deepshare.io。
+                    </p>
+                </div>
+            </div>
+            <div class="form-group" style="height:20%">
+                <div style='margin:auto;clear:both;' class='text-center'>
+                    <img src="/assets/images/btn_agree.png" style="width:15%" onclick="hideDiv('pop-div'); checkthebox();">
+                </div>
+            </div>
+        </div>
+        <div class='pop-box1' style='margin-left: 5%; width: 90%; height:97%; opacity:0.5; border-radius:5px;'>
+        </div>
+        <div class='pop-box2' style='margin-left: 10%; width: 80%; height:100%; opacity:0.5; border-radius:5px;'>
+        </div>
+    </div>
+    <div id="logo" style="margin:auto; clear:both; margin-left:38%; margin-top:7.5%;">
+        <a href="/">
+            <img src="/assets/images/logo.png" width="39%" height="100%">
+        </a>
+    </div>
+    ​
+    <div id="login" style='margin:auto;clear:both;margin-left:39%;margin-top:1.4%;'> <img src="/assets/images/Login to your account.png" width="25%"></div>
+    <div class="container col-sm-4 col-sm-offset-4 " style="margin-top:0.8%">
+        <div class="loginBox row">
+            <div name="wyccn" class="form-horizontal">
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <input type="text" class="form-control" name="username" placeholder="username" value="" id="username_login" style="border-radius:30px;opacity:0.4;background-color:black; color:white; ">
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <input type="password" class="form-control" name="password" placeholder="password" id="password_login" style="border-radius:30px;opacity:0.4;background-color:black; color:white;">
+                    </div>
+                </div>
+                <div class="checkbox" style="margin-left:15%">
+                    <label>
+                        <input type="checkbox" id="user_agree_box" checked="checked">
+                        <text style="color:black;">我已阅读并同意
+                            <!-- <a href="#">《合作协议条款》</a> -->
+                            <span data-toggle="modal" data-target="#exampleModal">
+                                <a onclick="popupDiv('pop-div');">隐私政策</a>,
+                                <a onclick="popupDiv('pop-div0');">服务条款</a>,
+                                <a href="/forget">    忘记密码</a>
+                            </span>
+                        </text>
+                    </label>
+                </div>
+                <div class="checkbox" style="margin-left:15%">
+                    <label>
+                        <input type="checkbox" id="remember-me">
+                        <text style="color:black;">记住我 </text>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-center" style="color: #990033;">
+                        <text id="wrongInfo" class="col-sm-12 text-danger"></text>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn" id="login_button" onclick="submitToBackEnd()" style="border-radius:30px; width:75%; color:black; background-color:white">登 录</button>
+                    </div>
+                </div>
+                <!--
+                <div class="form-group">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn" id="login_button" onclick="location.href='{{.RegisterURL}}'" style="border-radius:30px; width:75%; color:black; background-color:white">注 册</button>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+        <!-- basic scripts -->
+        <script type="text/javascript">
+        window.jQuery || document.write("<script src='/assets/js/jquery/jquery.js'>" + "<" + "/script>");
+        </script>
+        <script type="text/javascript">
+        if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+        </script>
+        <script src="/assets/js/bootstrap.js"></script>
+    <script>
+        var DS_REGISTER_URL = '{{.RegisterURL}}';
+        var DS_AUTH_URL = '{{.AuthURL}}';
+        var DS_CALLBACK_URL = '{{ .CallbackURL }}';
+        var DS_LOGIN_SELECTOR_URL =  '{{ .LoginSelectorURL }}';
+        var DS_RESEND_EMAIL_URL = '{{.ResendEmailURL}}'
+    </script>
+    <script src="/assets/v2/js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?915d820c1ff22f1193bf4eece86e392b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>Dashboard - DeepShare Admin</title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="Bookmark" href="/assets/images/favicon.ico">
+    <!-- page specific plugin styles -->
+    <style>
+    body {
+        background-image: url("/assets/images/bg.png");
+        background-size: 100% auto;
+    }
+
+    ​ #login {
+        margin: auto;
+        clear: both;
+        margin-left: 43%;
+        margin-top: 3%;
+    }
+
+    ​ #btn {
+        margin: auto;
+        clear: both;
+        margin-left: 38%;
+        margin-top: 1%;
+        ​
+    }
+
+    .pop-box {
+        z-index: 9999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        display: none;
+    }
+
+    .pop-box3 {
+        z-index: 9999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+
+    .pop-box1 {
+        z-index: 8999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+
+    .pop-box2 {
+        z-index: 7999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+    </style>
+</head>
+
+<body style='background-image: url("/assets/images/bg_blue.png"); background-size: 100% auto;'>
+    <div id="logo" style="margin:auto; clear:both; margin-left:38%; margin-top:7.5%;">
+        <a href="/">
+            <img src="/assets/images/logo.png" width="39%" height="100%">
+        </a>
+    </div>
+    <div id="login" style='margin:auto;clear:both;margin-left:39%;margin-top:1.4%;'> <img src="/assets/images/Login to your account.png" width="25%"></div>
+    <div class="container col-sm-4 col-sm-offset-4 " style="margin-top:0.8%">
+        <div class="loginBox row">
+            <div name="wyccn" class="form-horizontal">
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <input class="form-control" name="username" placeholder="请输入注册邮箱名" value="" id="username_login" style="opacity:0.4;background-color:black; color:white; ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-center" style="color: #990033;">
+                        <text id="wrongInfo" class="col-sm-12 text-danger"></text>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-center">
+                        <button id="submitbutton" class="btn" onclick="submitToBackEnd()" style="border-radius:30px; width:75%; color:black; background-color:white">提 交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--[if !IE]> -->
+    <script type="text/javascript">
+    window.jQuery || document.write("<script src='/assets/js/jquery/jquery.js'>" + "<" + "/script>");
+    </script>
+    <!-- <![endif]-->
+    <!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='/assets/js/jquery1x.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+    <script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+    </script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <!-- page specific plugin scripts -->
+    <script type="text/javascript">
+    function submitToBackEnd() {
+        // check username is or not a valid email address
+        var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+        if (!reg.test($("#username_login").val())) {
+            $("#wrongInfo").html("");
+            $("#wrongInfo").html("请输入正确的邮箱地址");
+            return;
+        }
+        if ($("#username_login").val() == "") {
+            $("#wrongInfo").html("");
+            $("#wrongInfo").html("信息输入不完整");
+            return;
+        }
+        $('#submitbutton').attr("disabled", true);
+        $.ajax({
+            type: "POST",
+            url: "/password/forgotpassword",
+            data: {
+                "username": $("#username_login").val(),
+            },
+            success: function(result) {
+                alert("已向您注册邮箱发送重置密码链接，请在您的邮箱接收邮件激活帐户");
+                location.href = {{.LoginURL}}
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                $("#wrongInfo").html("");
+                $("#wrongInfo").html("不存在该用户名!");
+            },
+            complete: function(xhr, statusText) {
+                $('#submitbutton').removeAttr("disabled");
+            }
+        });
+    }
+    </script>
+</body>

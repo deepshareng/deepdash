@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+  head
+    include ./head.jade
+    link(rel="stylesheet", href="/assets/v2/css/private.css?_=#{dsTimeStamp}")
+  body
+    .page-wrapper
+      .row
+        .col-lg-12
+          h1.page-header 权限管理
+      #myTabContent.tab-content
+        table#uesr-tabel.table-responsive.table.table-striped
+  include ./modal.jade
+  include ./script.jade
+  script(src="/assets/v2/js/private-permission.js?_=#{dsTimeStamp}")

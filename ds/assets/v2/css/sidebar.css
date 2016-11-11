@@ -1,0 +1,59 @@
+.deepdash-sidebar {
+  background: -webkit-linear-gradient(90deg, #1e90e5, #1380d2);
+  background: -moz-linear-gradient(90deg, #1e90e5, #1380d2);
+  background: -o-linear-gradient(90deg, #1e90e5, #1380d2);
+  background: -ms-linear-gradient(90deg, #1e90e5, #1380d2);
+  background: linear-gradient(0deg, #1e90e5, #1380d2);
+}
+@media (min-width: 768px) {
+  .deepdash-sidebar {
+    position: fixed;
+    margin-top: -52px;
+    width: 220px;
+    height: 100vh;
+  }
+}
+.deepdash-sidebar-header {
+  background-color: transparent;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  width: 220px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-width: 0px;
+  position: absolute;
+}
+.deepdash-sidebar-content {
+  background-color: transparent;
+}
+.deepdash-sidebar-content ul li a.active {
+  background-color: #359be8;
+}
+.deepdash-sidebar-content ul li a:hover {
+  background-color: #359be8;
+}
+.deepdash-sidebar a {
+  color: #fff;
+}
+.deepdash-sidebar .navbar-default .navbar-brand {
+  width: 100%;
+}
+.deepdash-sidebar .navbar-header {
+  width: 100%;
+  text-align: center;
+  border-bottom: solid 1px #cee7f9;
+}
+@media (max-width: 768px) {
+  .deepdash-sidebar .navbar-header {
+    display: none;
+  }
+}
+.deepdash-sidebar .navbar-header a {
+  width: 100%;
+}
+.sidebar ul.nav li i {
+  margin-left: 20px;
+}
+.sidebar .nav-second-level li a {
+  padding-left: 80px;
+}

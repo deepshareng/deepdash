@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Generate random for assets suffix-->
+    <!-- general head-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>Dashboard - DeepShare Admin</title>
+    <meta name="description" content="overviw &amp;amp; stats">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- bootstrap &amp; fontawesome-->
+    <link rel="stylesheet" href="/assets/v2/css/bootstrap.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/bootstrap-datepicker.min.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/metisMenu.min.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/sb-admin-2-deepdash.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/font-awesome.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/deepshare.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/nav.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/sidebar.css?_=20161011045231173">
+    <link rel="stylesheet" href="/assets/v2/css/monokai-sublime.min.css?_=20161011045231173">
+    <link rel="shortcut icon" href="/assets/v2/images/favicon.ico">
+    <link rel="Bookmark" href="/assets/v2/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/v2/css/login.css?_=20161011045231173">
+  </head>
+  <body>
+    <div class="logo"><a href="/"><img src="/assets/images/logo.png"></a></div>
+    <div class="panel panel-primary info">
+      <div class="panel-body">
+        <h2 class="text-center">请验证您的邮件地址</h2>
+        <p class="text-center">在您继续之前,我们需要验证您的邮件地址. 我们之前已经发送过一封验证邮件到的您的邮箱</p>
+        <p class="text-center">{{.Email}}</p>
+        <div class="text-center"><strong class="info-text">如果您没有收到邮件？
+            <div class="resend-div"></div></strong></div>
+      </div>
+    </div>
+    <div class="alert-div"></div>
+  </body>
+  <!-- Generate random for assets suffix-->
+  <script src="/assets/v2/js/jquery.js?_=20161011045231174"></script>
+  <script src="/assets/v2/js/jquery.qrcode.min.js?_=20161011045231174"></script>
+  <script src="/assets/v2/js/bootstrap.js?_=20161011045231174"></script>
+  <script src="/assets/v2/js/bootstrap-datepicker.min.js?_=20161011045231174"></script>
+  <script src="/assets/v2/js/highcharts.js?_=20161011045231174"></script>
+  <script src="/assets/v2/js/metisMenu.min.js?_=20161011045231174"></script>
+  <script src="/assets/v2/js/sb-admin-2.js?_=20161011045231174"></script>
+  <script src="/assets/v2/js/clipboard.min.js?_=20161011045231174"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?915d820c1ff22f1193bf4eece86e392b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <div id="ds-msg-modal" tabindex="-1" role="dialog" aria-labelledby="ds-msg-modal-label" aria-hidden="true" style="display:none;" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+          <h4 id="ds-msg-modal-label" class="modal-title">状态提示 </h4>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+  <script>var emailpath = '{{ .Email }}';</script>
+  <script src="/assets/v2/js/unverified-email.js?_=20161011045231174"></script>
+</html>

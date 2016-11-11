@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Generate random for assets suffix-->
+    <!-- general head-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>Dashboard - DeepShare Admin</title>
+    <meta name="description" content="overviw &amp;amp; stats">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- bootstrap &amp; fontawesome-->
+    <link rel="stylesheet" href="/assets/v2/css/bootstrap.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/bootstrap-datepicker.min.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/metisMenu.min.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/sb-admin-2-deepdash.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/font-awesome.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/deepshare.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/nav.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/sidebar.css?_=20160802021058048">
+    <link rel="stylesheet" href="/assets/v2/css/monokai-sublime.min.css?_=20160802021058048">
+    <link rel="shortcut icon" href="/assets/v2/images/favicon.ico">
+    <link rel="Bookmark" href="/assets/v2/images/favicon.ico">
+    <style>.popover {max-width: none;}</style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" class="navbar navbar-default navbar-static-top deepshare-nav"><a href="#" class="navbar-right navbar-brand navbar-brand-deepshare"><img id="navbar-app-icon"></a>
+        <button data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-right"><span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar">  </span></button>
+        <ul class="nav navbar-top-links navbar-right">
+          <li id="app-list-area" class="dropdown"><a data-toggle="dropdown" href="#" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-list-alt fa-fw"></i><span id="app-name"></span><i class="fa fa-caret-down fa-fw"></i></a>
+            <ul class="dropdown-message dropdown-menu">
+              <li id="app-list"><a href="#">正在获取应用列表...</a></li>
+              <li class="divider"></li>
+              <li><a href="/#/create-app">添加应用</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a data-toggle="dropdown" href="#" aria-expanded="false" class="dropdown-toggle"><span id="username" class="user-info"></span><i class="fa fa-caret-down fa-fw"></i></a>
+            <ul class="dropdown-message dropdown-menu">
+              <li><a href="/session/logout"><i class="fa fa-power-off fa-fw"></i>登出</a></li>
+              <li><a href="/#/create-app"><i class="fa fa-plus-square-o fa-fw"></i>添加应用</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="deepdash-sidebar"> 
+        <nav role="navigation" class="navbar navbar-default deepdash-sidebar-header">
+          <div class="navbar-header"><a href="/" class="navbar-brand"><small><i><img src="/assets/v2/images/logo_inside.png" width="130px"></i></small></a></div>
+        </nav>
+        <div role="navigation" class="navbar-default sidebar deepdash-sidebar-content">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li>
+                <div id="slidebar-app-info"><img id="slidebar-app-icon"><span id="slidebar-app-name"></span></div>
+              </li>
+              <li><a href="/#/overall"><i class="fa fa-bar-chart-o fa-fw"></i>数据概览</a></li>
+              <li><a href="/#/marketing"><i class="fa fa-wrench fa-fw"></i>渠道检测</a></li>
+              <li><a href="/#/pr"><i class="fa fa-chain fa-fw"></i>推广链接</a></li>
+              <li><a href="/#/appinfo"><i class="fa fa-info fa-fw"></i>应用信息</a></li>
+              <li><a href="/#/create-app"><i class="fa fa-code fa-fw"></i>集成引导</a></li>
+              <li><a data-html="true" data-toggle="popover" data-trigger="hover" data-placement="auto" data-original-title="" data-content="&lt;img style='margin:0;width:100%;height:100%' src='./assets/v2/images/qrcode-xiaozhao.png'&gt;" href="javascript:;"><i class="fa fa-weixin fa-fw"></i>客服微信</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="page-wrapper" style="min-height: 537px">
+        <div id="integrate-app">
+          <div style="padding: 320px 0" class="text-center loader-inner ball-pulse">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="text-center ds-footer">
+          <footer>DeepShare Application &copy; 2016</footer>
+        </div>
+        <div id="ds-msg-modal" tabindex="-1" role="dialog" aria-labelledby="ds-msg-modal-label" aria-hidden="true" style="display:none;" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+                <h4 id="ds-msg-modal-label" class="modal-title">状态提示 </h4>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+        <div id="ds-login-modal" tabindex="-1" role="dialog" aria-labelledby="ds-msg-modal-label" aria-hidden="true" style="display:none;" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+                <h4 id="ds-msg-modal-label" class="modal-title">登录</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" lpformnum="1">
+                  <fieldset>
+                    <div class="form-group">
+                      <input id="username_login" placeholder="username" name="email" type="text" autofocus="" autocomplete="off" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <input id="password_login" placeholder="Password" name="password" type="password" value="" autocomplete="off" class="form-control">
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input id="remember-me" name="remember" type="checkbox" value="Remember Me">Remember Me
+                      </label>
+                    </div>
+                    <!-- button's default type is submit-->
+                    <button id="ds-login-modal-submit" type="button" class="btn btn-lg btn-success btn-block">登录</button>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+        <div id="ds-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="ds-msg-modal-label" aria-hidden="true" style="display:none;" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+                <h4 id="ds-msg-modal-label" class="modal-title">测试链接</h4>
+              </div>
+              <div class="modal-body">
+                <p>扫描二维码进行跳转测试</p>
+                <p id="ds-test-link-qrcode" class="text-center"></p>
+              </div>
+              <!--
+              h4.text-center
+                  a#ds-test-link(href="javascript:;")
+              -->
+              <div class="modal-footer">
+                <div><a class="btn btn-default ds-cancel">测试失败，重新配置</a><a class="btn btn-default ds-ensure">测试成功，下一步</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Generate random for assets suffix-->
+    <script src="/assets/v2/js/jquery.js?_=20160802021058049"></script>
+    <script src="/assets/v2/js/jquery.qrcode.min.js?_=20160802021058049"></script>
+    <script src="/assets/v2/js/bootstrap.js?_=20160802021058049"></script>
+    <script src="/assets/v2/js/bootstrap-datepicker.min.js?_=20160802021058049"></script>
+    <script src="/assets/v2/js/highcharts.js?_=20160802021058049"></script>
+    <script src="/assets/v2/js/metisMenu.min.js?_=20160802021058049"></script>
+    <script src="/assets/v2/js/sb-admin-2.js?_=20160802021058049"></script>
+    <script src="/assets/v2/js/clipboard.min.js?_=20160802021058049"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?915d820c1ff22f1193bf4eece86e392b";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <script>
+      var sessionAppId = '{{ .AppID }}';
+      var appIndex = 0;
+      var appNames = [];
+      
+      var DSGLOBAL = {
+          initComponent: function() {
+              console.log('default'); 
+          }, 
+      };
+    </script>
+    <script src="/assets/v2/js/integrate.js?_=20160802021058049"></script>
+  </body>
+</html>

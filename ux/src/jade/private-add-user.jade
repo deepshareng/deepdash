@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    include ./head.jade
+    link(rel="stylesheet", href="/assets/v2/css/login.css?_=#{dsTimeStamp}")
+  body
+    .logo
+      a(herf="/")
+        img(src="/assets/images/logo.png")
+    .panel.panel-info.info
+      .panel-heading 创建用户
+      .panel-body
+        .input-box
+          form(role="form")
+            .form-group
+              .input-group
+                span.input-group-addon 用户名
+                input.form-control(placeholder="username", name="username" type="text")
+            .form-group
+              .input-group
+                span.input-group-addon 应用名
+                input.form-control(placeholder="appname", name="appname", type="text")
+            .form-group
+              .input-group
+                span.input-group-addon 密  码
+                input.form-control(placeholder="password", name="password", type="text")
+            .form-group
+              .input-group
+                span.input-group-addon 电 话
+                input.form-control(placeholder="phone", name="phone", type="text")
+           .form-group
+              .btn.btn-success.center-block.submit 提 交
+
+  include ./script.jade
+  script(src="/assets/v2/js/private-add-user.js?_=#{dsTimeStamp}")

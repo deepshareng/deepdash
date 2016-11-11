@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?c85a7d32eec8b65d1b84ba9de6c6a2c4";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>Dashboard - DeepShare Admin</title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="Bookmark" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="/assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <script src="/assets/js/ace/ace-extra.js"></script>
+    <style>
+    .help-block {
+        margin-bottom: 0px;
+    }
+
+    .dropdown-content li.active {
+        border-left: 4px solid #00adef;
+    }
+
+    .nav-user-photo {
+        height: 30px;
+        width: 30px;
+    }
+    </style>
+</head>
+
+<body class="no-skin">
+    <div id="navbar" class="navbar navbar-default" style="background-color: white; border-bottom: 1px solid #e5e5e5">
+        <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {}
+        </script>
+        <div class="navbar-container" id="navbar-container">
+            <div class="navbar-header pull-left" style="padding-left:30px">
+                <a href="#" class="navbar-brand">
+                    <small>
+							<i> <img src="/assets/images/logo_inside.png" width="130px"> </i>
+						</small>
+                </a>
+            </div>
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="white-opaque">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <img class="nav-user-photo" src="/assets/images/user_ico.png" />
+                            <span class="user-info" style="color:black" id="username">
+									<small>欢迎,</small>
+									Guest
+								</span>
+                            <i class="ace-icon fa fa-caret-down" style="color:black"></i>
+                        </a>
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                              <li>
+                                <a href="/session/logout">
+                                    <i class="ace-icon fa fa-power-off"></i> 登出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {}
+        </script>
+        <div id="sidebar" class="sidebar responsive">
+            <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'fixed')
+            } catch (e) {}
+            </script>
+            <ul class="nav nav-list">
+                <li class="active highlight">
+                    <a href="">
+                        <i class="menu-icon fa fa-tachometer"></i>
+                        <span class="menu-text"> Dashboard </span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li class="">
+                    <a href={{.IndexURL}}>
+                        <i class="menu-icon fa fa-list-alt"></i>
+                        <span class="menu-text"> 数据概览 </span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li class="">
+                    <a href={{.MarketingURL}}>
+                        <i class="menu-icon fa fa-link "></i>
+                        <span class="menu-text"> 渠道监测 </span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li class="">
+                    <a href={{.CallbackURL}}>
+                        <i class="menu-icon fa fa-gavel "></i>
+                        <span class="menu-text"> 回调测试 </span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li class="">
+                    <a href={{.AppInfoURL}}>
+                        <i class="menu-icon fa fa-info "></i>
+                        <span class="menu-text"> 应用信息 </span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+            <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+                <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right" id="menuIcon"></i>
+            </div>
+            <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'collapsed')
+            } catch (e) {}
+            </script>
+        </div>
+        <div class="main-content">
+            <div class="main-content-inner">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <script type="text/javascript">
+                    try {
+                        ace.settings.check('breadcrumbs', 'fixed')
+                    } catch (e) {}
+                    </script>
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="ace-icon fa fa-home home-icon"></i>
+                            <a href="http://deepshare.io/" target="_blank">Home</a>
+                        </li>
+                        <li class="active">添加应用</li>
+                    </ul>
+                </div>
+                <div class="page-content">
+                    <div class="page-header">
+                        <h1>
+								添加应用
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									添加您接入DeepShare的应用
+								</small>
+							</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-10">
+                            <div class="widget-box">
+                                <div class="widget-header">
+                                    <h4 class="widget-title">添加应用信息</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="widget-main no-padding">
+                                        <form class="form-horizontal" role="form" id="validation-form">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="name"> 应用名称 </label>
+                                                <div class="col-sm-9">
+                                                    <div class="clearfix">
+                                                        <input type="text" id="name" name="name" placeholder="应用名称" class="col-xs-10 col-sm-5" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="link"></label>
+                                                <div class="col-sm-9">
+                                                    <div class="clearfix">
+                                                        <label class="block">
+                                                            <input checked="checked" name="readed" id="readed" type="checkbox" class="ace ace-checkbox-2" />
+                                                            <span class="lbl bigger-120"> 我已阅读<a href="#">服务条款</a></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions center">
+                                                <button type="submit" class="btn btn-sm btn-success">
+                                                    添加应用并完善信息
+                                                    <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-inner">
+                <div class="footer-content">
+                    <span class="bigger-120">
+							<span class="blue bolder">DeepShare</span> Application &copy; 2015
+                    </span>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+            <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+        </a>
+    </div>
+    <script type="text/javascript">
+    window.jQuery || document.write("<script src='/assets/js/jquery/jquery.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery/jquery.mobile.custom.js'>" + "<" + "/script>");
+    </script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/jquery/jquery.validate.js"></script>
+    <script src="/assets/js/jquery/jquery.maskedinput.js"></script>
+    <script src="/assets/js/select2.js"></script>
+    <script src="/assets/js/ace/elements.scroller.js"></script>
+    <script src="/assets/js/ace/elements.colorpicker.js"></script>
+    <script src="/assets/js/ace/elements.fileinput.js"></script>
+    <script src="/assets/js/ace/elements.typeahead.js"></script>
+    <script src="/assets/js/ace/elements.wysiwyg.js"></script>
+    <script src="/assets/js/ace/elements.spinner.js"></script>
+    <script src="/assets/js/ace/elements.treeview.js"></script>
+    <script src="/assets/js/ace/elements.wizard.js"></script>
+    <script src="/assets/js/ace/elements.aside.js"></script>
+    <script src="/assets/js/ace/ace.js"></script>
+    <script src="/assets/js/ace/ace.ajax-content.js"></script>
+    <script src="/assets/js/ace/ace.touch-drag.js"></script>
+    <script src="/assets/js/ace/ace.sidebar.js"></script>
+    <script src="/assets/js/ace/ace.sidebar-scroll-1.js"></script>
+    <script src="/assets/js/ace/ace.submenu-hover.js"></script>
+    <script src="/assets/js/ace/ace.widget-box.js"></script>
+    <script src="/assets/js/ace/ace.settings.js"></script>
+    <script src="/assets/js/ace/ace.settings-rtl.js"></script>
+    <script src="/assets/js/ace/ace.settings-skin.js"></script>
+    <script src="/assets/js/ace/ace.widget-on-reload.js"></script>
+    <script src="/assets/js/ace/ace.searchbox-autocomplete.js"></script>
+    <script type="text/javascript">
+    function getUsername() {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/session/getuser",
+            success: function(result) {
+                username = result.username;
+                printUsername();
+            },
+            error: function(data) {
+            }
+        })
+    }
+
+    function printUsername() {
+        $("#username").empty();
+        $("#username").append('<small>欢迎,</small>' +
+            username);
+    }
+    getUsername();
+
+    var beforeWidth = document.body.clientWidth;
+    if (beforeWidth < 750) {
+        $('#sidebar').ace_sidebar('toggleMenu');
+    }
+    window.onresize = function() {
+        var width = document.body.clientWidth,
+            curentMenu = $("#menuIcon").hasClass('fa-angle-double-left');
+        if (width < 750 && beforeWidth >= 750 && curentMenu) {
+            $('#sidebar').ace_sidebar('toggleMenu');
+        }
+        if (width > 750 && beforeWidth <= 750 && !curentMenu) {
+            $('#sidebar').ace_sidebar('toggleMenu');
+        }
+        beforeWidth = width;
+    };
+
+    jQuery(function($) {
+        $(".dropdown-menu a").click(function() {
+            var title = $(this).children("div").children("span.pull-left").html();
+            $("#app-title").html(title);
+            $(this).parent().siblings().removeClass("active");
+            $(this).parent().addClass("active");
+        });
+
+        $('[data-rel=tooltip]').tooltip({
+            container: 'body'
+        });
+        $('[data-rel=popover]').popover({
+            container: 'body'
+        });
+
+        $('#validation-form').validate({
+            errorElement: 'div',
+            errorClass: 'help-block',
+            focusInvalid: false,
+            ignore: "",
+            rules: {
+                name: {
+                    required: true
+                },
+                pkgname: {
+                    required: true
+                },
+                readed: {
+                    required: true
+                }
+            },
+
+            messages: {
+                name: "请输入应用名称",
+                pkgname: "请输入应用包名",
+                readed: "请阅读并同意我们的服务条款"
+            },
+
+
+            highlight: function(e) {
+                $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+            },
+
+            success: function(e) {
+                $(e).closest('.form-group').removeClass('has-error'); //.addClass('has-info');
+                $(e).remove();
+            },
+
+            errorPlacement: function(error, element) {
+                if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
+                    var controls = element.closest('div[class*="col-"]');
+                    if (controls.find(':checkbox,:radio').length > 1) controls.append(error);
+                    else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+                } else if (element.is('.select2')) {
+                    error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
+                } else if (element.is('.chosen-select')) {
+                    error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
+                } else error.insertAfter(element.parent());
+            },
+
+            submitHandler: function(form) {
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "/appid",
+                    data: $('#validation-form').serialize(),
+                    success: function(result) {
+                        var strresult = result.value;
+                        location.href = {{.AddAppSubURL}} + "?appid=" + strresult + "&appname=" + $('#name').val();
+                    },
+                    error: function(data) {
+                        alert("error:" + data.responseText);
+
+                    }
+                });
+            },
+        });
+    });
+    </script>
+</body>
+
+</html>

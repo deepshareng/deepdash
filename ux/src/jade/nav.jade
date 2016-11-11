@@ -1,0 +1,35 @@
+nav.navbar.navbar-default.navbar-static-top.deepshare-nav(role="navigation")
+  a(href="#").navbar-right.navbar-brand.navbar-brand-deepshare
+    img#navbar-app-icon
+  button.navbar-toggle.navbar-right(data-toggle="collapse", data-target=".navbar-collapse")
+    span.sr-only Toggle Navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar   
+  ul.nav.navbar-top-links.navbar-right
+      li#app-list-area.dropdown
+          a.dropdown-toggle(data-toggle="dropdown", href="#", aria-expanded="false")
+              i.fa.fa-list-alt.fa-fw
+              span#app-name
+              i.fa.fa-caret-down.fa-fw
+          ul.dropdown-message.dropdown-menu
+              li#app-list
+                  a(href="#") 正在获取应用列表...
+              li.divider
+              li
+                  a(href="/#/create-app") 添加应用
+      li.dropdown
+          a.dropdown-toggle(data-toggle="dropdown", href="#", aria-expanded="false")
+              span.user-info#username
+              i.fa.fa-caret-down.fa-fw
+
+          ul.dropdown-message.dropdown-menu
+              li
+                  a(href="/session/logout")
+                      i.fa.fa-power-off.fa-fw
+                      | 登出
+              li
+                  a(href="/#/create-app")
+                      i.fa.fa-plus-square-o.fa-fw
+                      | 添加应用
+include ./sidebar.jade

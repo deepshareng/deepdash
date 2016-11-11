@@ -1,0 +1,22 @@
+// Generate random for assets suffix
+- var dsTimeStamp = new Date().toJSON().match(/[0-9]/g).join('')
+
+script(src="/assets/v2/js/jquery.js?_=#{dsTimeStamp}")
+script(src="/assets/v2/js/jquery.qrcode.min.js?_=#{dsTimeStamp}")
+script(src="/assets/v2/js/bootstrap.js?_=#{dsTimeStamp}")
+script(src="/assets/v2/js/bootstrap-datepicker.min.js?_=#{dsTimeStamp}")
+script(src="/assets/v2/js/highcharts.js?_=#{dsTimeStamp}")
+script(src="/assets/v2/js/metisMenu.min.js?_=#{dsTimeStamp}")
+script(src="/assets/v2/js/sb-admin-2.js?_=#{dsTimeStamp}")
+
+script(src="/assets/v2/js/clipboard.min.js?_=#{dsTimeStamp}")
+
+script.
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?915d820c1ff22f1193bf4eece86e392b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+

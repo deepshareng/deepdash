@@ -1,0 +1,20 @@
+div.modal.fade#ds-login-modal(tabindex="-1", role="dialog", aria-labelledby="ds-msg-modal-label", aria-hidden="true", style="display:none;")
+    div.modal-dialog
+        div.modal-content
+            div.modal-header
+                button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                h4.modal-title#ds-msg-modal-label 登录
+            div.modal-body
+                form(role="form",lpformnum="1")
+                    fieldset
+                        div.form-group
+                            input#username_login.form-control(placeholder="username",name="email",type="text",autofocus="" autocomplete="off")
+                        div.form-group
+                            input#password_login.form-control(placeholder="Password",name="password",type="password",value="",autocomplete="off")
+                        div.checkbox
+                            label
+                                input#remember-me(name="remember",type="checkbox",value="Remember Me")
+                                | Remember Me
+                        // button's default type is submit
+                        button#ds-login-modal-submit.btn.btn-lg.btn-success.btn-block(type="button") 登录
+            div.modal-footer

@@ -1,0 +1,36 @@
+.deepshare-nav {
+  margin: 0px 0px 0px 0px;
+  background-color: #fff;
+  border-color: #cee7f9;
+  -moz-box-shadow: 0 0px 1px #cee7f9 /* 老的 Firefox */;
+  -webkit-box-shadow: 0px 0px 1px #cee7f9;
+  box-shadow: 0px 0px 1px #cee7f9;
+}
+@media (min-width: 768px) {
+  .deepshare-nav {
+    margin: 0px 0px 0px 220px;
+  }
+}
+.navbar-brand-deepshare {
+  margin-left: 0px;
+  border-color: #cee7f9;
+  border-width: 0px 0px 0px 1px;
+  border-style: solid;
+  margin-right: 0px;
+  padding: 6px;
+}
+.navbar-brand-deepshare img {
+  width: 38px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.navbar-top-links li:last-child {
+  margin-right: 0px;
+}
+.navbar-top-links li a {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+.navbar-top-links li a i {
+  margin-right: 0px;
+}

@@ -1,0 +1,16 @@
+div.modal.fade#ds-confirm-modal(tabindex="-1", role="dialog", aria-labelledby="ds-msg-modal-label", aria-hidden="true", style="display:none;")
+    div.modal-dialog
+        div.modal-content
+            div.modal-header
+                button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+                h4.modal-title#ds-msg-modal-label 测试链接
+            div.modal-body
+                p 扫描二维码进行跳转测试
+                p#ds-test-link-qrcode.text-center
+            //
+                h4.text-center
+                    a#ds-test-link(href="javascript:;")
+            div.modal-footer
+                div
+                    a.btn.btn-default.ds-cancel 测试失败，重新配置
+                    a.btn.btn-default.ds-ensure 测试成功，下一步

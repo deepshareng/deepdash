@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    include ./head.jade
+    link(rel="stylesheet", href="/assets/v2/css/login.css?_=#{dsTimeStamp}")
+  body
+    .logo
+      a(href="/")
+        img(src="/assets/images/logo.png")
+    .panel.panel-primary.info
+      .panel-body
+        h2.text-center 请验证您的邮件地址
+        p.text-center 在您继续之前,我们需要验证您的邮件地址. 我们之前已经发送过一封验证邮件到的您的邮箱
+        p.text-center {{.Email}}
+        .text-center
+          strong.info-text 如果您没有收到邮件？
+            .resend-div
+    .alert-div
+  include ./script.jade
+  include ./modal.jade
+  script.
+    var emailpath = '{{ .Email }}';
+  script(src="/assets/v2/js/unverified-email.js?_=#{dsTimeStamp}")

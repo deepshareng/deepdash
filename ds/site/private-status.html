@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Generate random for assets suffix-->
+    <!-- general head-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>Dashboard - DeepShare Admin</title>
+    <meta name="description" content="overviw &amp;amp; stats">
+    <link rel="stylesheet" href="/assets/v2/css/bootstrap.css?_=20160427042154412">
+    <link rel="stylesheet" href="/assets/v2/css/metisMenu.min.css?_=20160427042154412">
+    <link rel="stylesheet" href="/assets/v2/css/sb-admin-2.css?_=20160427042154412">
+    <link rel="stylesheet" href="/assets/v2/css/font-awesome.css?_=20160427042154412">
+    <link rel="stylesheet" href="/assets/v2/css/deepshare.css?_=20160427042154412">
+    <link rel="stylesheet" href="/assets/v2/css/bootstrap-datepicker.min.css">
+    <link rel="shortcut icon" href="/assets/v2/images/favicon.ico">
+    <link rel="Bookmark" href="/assets/v2/images/favicon.ico">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav id="navbar" role="navigation" style="margin-top: 0px; margin-bottom: 0px;" class="navbar navbar-default navbar-static-top">
+            <div class="navbar-header">
+                <button data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <small><i><img src="/assets/v2/images/logo_inside.png" width="130px"></i></small>
+                </a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" href="#" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-user fa-fw"></i><span id="username" class="user-info"></span> </a>
+                    <ul class="dropdown-message dropdown-menu">
+                        <li><a href="/session/logout"><i class="fa fa-power-off fa-fw"></i>登出</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div role="navigation" class="navbar-default sidebar">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul id="side-menu" class="nav in">
+                        <li class="active"><a class="active" href="#"><i class="fa fa-bar-chart-o fa-fw"></i>数据概览</a></li>
+                        <li><a href="/private/vital"><i class="fa fa-wrench fa-fw"></i>核心数据</a></li>
+                        <li><a href="/register"><i class="fa fa-wrench fa-fw"></i>用户注册</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="page-wrapper" style="min-height: 537px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">数据概览</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            本周统计
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-justified" id="thisWeekCount">
+                            </ul>
+                        </div>
+                </div>
+            </div> 
+            <div class="row">
+                <div class="panel">
+                    <div class="btn-group" role="group" aria-label="...">
+                      <button type="button" class="btn btn-default filter" id="filter_all_all">所有</button>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              上周状态
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="filter" id="filter_lastWeek_complete">集成完毕</a></li>
+                              <li><a class="filter" id="filter_lastWeek_fail">集成失败</a></li>
+                              <li><a class="filter" id="filter_lastWeek_progressing">集成中</a></li>
+                              <li><a class="filter" id="filter_lastWeek_registered">注册完毕</a></li>
+                              <li><a class="filter" id="filter_lastWeek_freeze">冻结</a></li>   
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              本周状态
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="filter" id="filter_thisWeek_complete">集成完毕</a></li>
+                              <li><a class="filter" id="filter_thisWeek_fail">集成失败</a></li>
+                              <li><a class="filter" id="filter_thisWeek_progressing">集成中</a></li>
+                              <li><a class="filter" id="filter_thisWeek_registered">注册完毕</a></li>
+                              <li><a class="filter" id="filter_thisWeek_freeze">冻结</a></li>   
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              创建时间
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="filter" id="filter_createTime_day">一天内</a></li>
+                              <li><a class="filter" id="filter_createTime_week">一周内</a></li>
+                              <li><a class="filter" id="filter_createTime_month">一月内</a></li>
+                              <li><a class="filter" id="filter_createTime_threemonths">三月内</a></li>
+                              <li><a class="filter" id="filter_createTime_sixmonths">六月内</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              回访时间
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="filter" id="filter_returnVisitTime_day">一天内</a></li>
+                                <li><a class="filter" id="filter_returnVisitTime_week">一周内</a></li>
+                                <li><a class="filter" id="filter_returnVisitTime_month">一月内</a></li>
+                                <li><a class="filter" id="filter_returnVisitTime_threemonths">三月内</a></li>
+                                <li><a class="filter" id="filter_returnVisitTime_sixmonths">六月内</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              渠道来源
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="filter" id="filter_channel_know">我认识你公司的人</a></li>
+                              <li><a class="filter" id="filter_channel_report">我看了关于Deepshare的报道</a></li>
+                              <li><a class="filter" id="filter_channel_recommend">有朋友推荐给我的</a></li>
+                              <li><a class="filter" id="filter_channel_contact">你们公司同事主动联络了我们介绍Deepsharec产品</a></li>
+                              <li><a class="filter" id="filter_channel_rabbitPre">我在兔展看到的</a></li> 
+                              <li><a class="filter" id="filter_channel_other">其他</a></li>   
+                            </ul>
+                        </div>
+                    </div>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 statics-data-selector">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#app-data-statistic" data-toggle="tab">app统计数据</a></li>
+                        <li class="active"><a href="#user-data-statistic" data-toggle="tab">user统计数据</a></li>
+                        <li><a href="#activate-app-data-statistic" data-toggle="tab">活跃app统计数据</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade" id="app-data-statistic">
+                    <div class="table-responsive">
+                        <table id="app-data-statistics-table" class="table table-striped">
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade active in" id="user-data-statistic">
+                    <div class="table-responsive">
+                        <table id="user-data-statistics-table" class="table table-striped">
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="activate-app-data-statistic">
+                    <div class="table-responsive">
+                        <table id="activate-app-data-statistics-table" class="table table-striped">
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="/assets/v2/js/moment.min.js"></script>
+    <script src="/assets/v2/js/jquery.js?_=20160427042154413"></script>
+    <script src="/assets/v2/js/bootstrap.js?_=20160427042154413"></script>
+    <script src="/assets/v2/js/highcharts.js?_=20160427042154413"></script>
+    <script src="/assets/v2/js/metisMenu.min.js?_=20160427042154413"></script>
+    <script src="/assets/v2/js/sb-admin-2.js?_=20160427042154413"></script>
+    <script src="/assets/v2/js/qidian.js?_=20160427042154413"></script>
+    <script src="/assets/v2/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+    var staticData = null;
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/ /g, '&nbsp;')
+            .replace(/\"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+    function filter(args) {
+        var userList = []
+        if (!staticData || !staticData.userdata){
+            return;
+        }
+        var userdata = staticData.userdata;
+        var filterName = args.split('_')[1]
+        var filterValue = args.split('_')[2]
+        userdata.forEach(function(user) {
+            var filtetFunc = statusFilter;
+            var arg = filterValue;
+            var content = "";
+            switch (filterName) {
+                case "lastWeek":   
+                    filtetFunc = statusFilter;
+                    content = user['lastWeekAccountStatus']
+                    break; 
+                case "thisWeek":   
+                    filtetFunc = statusFilter;
+                    content = user['accountStatus']
+                    break;
+                case "createTime":   
+                    filtetFunc = createTimeFilter;
+                    content = user['createat']
+                    break;
+                case "returnVisitTime":   
+                    filtetFunc = visitTimeFilter;
+                    content = user['returnVisitTime']
+                    break;
+                case "channel":   
+                    filtetFunc = channelFilter;
+                    content = user['source']
+                    break;
+                case "all":
+                    filtetFunc = function(arg, content){return true};
+                    content = "all";
+                    break;
+                default:
+                    filtetFunc = function(arg, content){return true};
+                    content = "all";
+                    break;
+            }
+            if (content && filtetFunc(arg, content)) {
+                userList.push(user);
+            }
+        });
+        writeUserData(userList)
+    }
+
+    function statusFilter(arg, content) {
+        var hash = {
+            "complete"    :    "集成完毕",
+            "fail"        :    "集成失败",
+            "progressing" :    "集成中",
+            "registered"  :    "注册完毕",
+            "freeze"      :    "冻结中"
+        }
+        return hash[arg] == content
+    }
+
+    function visitTimeFilter(arg, content) {
+        var contentTime = moment(content)
+        if (!content || content == null || content == "") {
+            contentTime = moment()
+        }
+
+        var hash = {
+            "day"         :     moment().subtract(1, 'days').startOf('day'),
+            "week"        :     moment().subtract(1, 'weeks').startOf('day'),
+            "month"       :     moment().subtract(1, 'months').startOf('day'), 
+            "threemonths" :     moment().subtract(3, 'months').startOf('day'),
+            "sixmonths"   :     moment().subtract(6, 'months').startOf('day')
+        }
+        return  contentTime.isAfter(hash[arg])
+    }
+
+    function createTimeFilter(arg, content) {
+        var t = new Date(parseInt(content, 10) * 1000);
+        var contentTimeStr = t.getFullYear() + "/" + (t.getMonth() + 1) + "/" + t.getDate();
+        var contentTime = moment(contentTimeStr)
+        
+        if (!content || content == null || content == "") {
+            contentTime = moment()
+        }
+
+        var hash = {
+            "day"         :     moment().subtract(1, 'days').startOf('day'),
+            "week"        :     moment().subtract(1, 'weeks').startOf('day'),
+            "month"       :     moment().subtract(1, 'months').startOf('day'), 
+            "threemonths" :     moment().subtract(3, 'months').startOf('day'),
+            "sixmonths"   :     moment().subtract(6, 'months').startOf('day')
+        }
+        return  contentTime.isAfter(hash[arg])
+    }
+
+
+    function channelFilter(arg, content) {
+        var hash = {
+            "know"      :    "我认识你们公司的人", 
+            "report"    :    "我看了关于 DeepShare 的媒体报道", 
+            "recommend" :    "有朋友给我推荐的", 
+            "contact"   :    "你们公司有同事主动联络了我们介绍 DeepShare 产品", 
+            "rabbitPre" :    "我在兔展看到的", 
+        }
+
+        if (arg === "other") {
+            for(var x in hash) {
+                if (hash[x] == content) {
+                    return false;
+                }
+            }
+            return true
+        }
+
+        return hash[arg] == content
+    }
+
+
+    $('.filter').click(function(){
+        var filterAttribute = $(this).attr("id");
+        filter(filterAttribute)
+    });
+
+    function convertHeaderItems(headitems) {
+        var st = '';
+        for (var i in headitems) {
+            st += '<th style="word-break:keep-all;">' + headitems[i] + '</th>'
+        }
+        return '<thead><tr>' + st + '</tr></thead>'
+    }
+
+    function createCounterRow(counter) {
+        return "<li><span class='label label-success'>集成完毕</span> : " + counter.integrated + "</li>" +
+               "<li><span class='label label-primary'>集成中</span> : " + counter.integrating + "</li>" +
+               "<li><span class='label label-danger'>集成失败</span> : " + counter.integratefailed + "</li>" +
+               "<li><span class='label label-info'>注册完毕</span> : " + counter.registered + "</li>" +
+               "<li><span class='label label-warning'>冻结中</span> : " + counter.freeze + "</li>"
+    }
+
+    function createButton(btnClass, btnContent, dataId) {
+       return "<a class='btn-block " + btnClass + 
+               "' type='button' id='" + dataId + 
+               "'>" + btnContent + "</a>";
+    }
+
+    var userTableHeaderItems = new Array("用户邮箱", "App名称", "上周状态", "本周状态", "联系方式", "回访结果", "回访时间", "操作", "渠道来源", "创建时间", "密码")
+    var appTableHeaderItems = new Array("App名称", "AppID", "注册用户", "所属app", "一周链接展示", "一周链接点击", "一周活跃用户", "一周下载用户")
+    var userTableHeader = convertHeaderItems(userTableHeaderItems)
+    var appTableHeader = convertHeaderItems(appTableHeaderItems)
+
+    function getStatistics(success, error) {
+        $.ajax({
+            type: "GET",
+            url: "/this-is-a-clandestine-resource/status",
+            data: {},
+            dataType: "json",
+            success: success,
+            error: error,
+        })
+    }
+
+    function writeUserData(userdata) {
+        $('#user-data-statistics-table').empty();
+        var tableUserItems = ""
+        for (var i in userdata) {
+            for (var itemName in userdata[i]) {
+                userdata[i][itemName] = escapeHtml(userdata[i][itemName].toString())
+            }
+            tableUserItems += "<tr>"
+            if (userdata[i]["activate"] == "1") {
+                tableUserItems += "<td>" + userdata[i]["username"] + "</td>"
+                tableUserItems += "<td><p style='width:120px;word-break:break-all'>" + userdata[i]["appname"] + "<p></td>"
+                tableUserItems += "<td>" + userdata[i]["lastWeekAccountStatus"] + "</td>"
+                tableUserItems += "<td>" + userdata[i]["accountStatus"] + "</td>"
+                tableUserItems += "<td>" + userdata[i]["phone"] + "</td>"
+                tableUserItems += "<td><textarea style='width:150px' class='form-control returnVisitResult'>" + userdata[i]["returnVisitResult"] + "</textarea></td>"
+                tableUserItems += "<td><input class='datepicker returnVisitTime' value='" + userdata[i]["returnVisitTime"] + "'></input></td>"
+                tableUserItems += "<td>"
+                if (userdata[i]["freeze"] != "1"){
+                    tableUserItems += createButton("btn btn-danger freeze", "冻结", userdata[i]["id"])
+                } else {
+                    tableUserItems += createButton("btn btn-warning unfreeze", "解封", userdata[i]["id"]) 
+                }
+                tableUserItems += createButton("btn btn-primary visitSave", "保存",userdata[i]["id"])
+                tableUserItems += "</td>"
+                tableUserItems += "<td>" + userdata[i]["source"] + "</td>"
+                var t = new Date(parseInt(userdata[i]["createat"], 10) * 1000);
+                tableUserItems += "<td>" + t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + "</td>"
+                tableUserItems += "<td>" + userdata[i]["password"] + "</td>"
+            }
+            tableUserItems += "</tr>"
+        }
+        $('#user-data-statistics-table').html(userTableHeader + tableUserItems)
+        $('.freeze').bind('click', freezeUser);
+        $('.unfreeze').bind('click', unfreezeUser);
+        $('.visitSave').bind('click', updateReturnVisit);
+        $('.datepicker').datepicker({
+            format: "yyyy/mm/dd",
+            todayHighlight: true
+        });
+
+    }
+
+    function importUserData() {
+        if (staticData && staticData.userdata) {
+            writeUserData(staticData.userdata)
+        } else {
+            getStatistics(function(statistics) {
+                userdata = statistics.userdata
+                writeUserData(staticData.userdata)
+            })
+        }
+    }
+
+    // GetAppstatics
+    // event: 'basic-event,url-tem-overall-value,sharelink-tem-overall-value'
+    function WriteData() {
+        getStatistics(function(statistics) {
+            staticData = statistics
+            // $('#lastWeekCount').html(createCounterRow(  statistics.lastweekcount))
+            $('#thisWeekCount').html(createCounterRow(statistics.accountcount))
+
+            // import userdata
+            importUserData()
+
+            // import appdata
+            appdata = statistics.appdata
+            var tableAllAppItems = ""
+            var tableActivateAppItems = ""
+            for (var i in appdata) {
+                var tableAppItem = ""
+                tableAppItem = "<tr>"
+                item = appdata[i]
+                for (var itemName in appdata[i]) {
+                    appdata[i][itemName] = escapeHtml(appdata[i][itemName].toString())
+                }
+                    //<thead><tr><th>App名称</th><th>AppID</th><th>注册用户</th><th>所属app</th><th>一周链接展示</th><th>一周链接点击</th><th>一周活跃用户</th><th>一周下载用户</th>
+                tableAppItem += "<td>" + item["AppName"] + "</td>"
+                tableAppItem += "<td><a href='/this-is-a-clandestine-resource/apps?appid=" + item["AppID"] + "'>" + item["AppID"] + "</a></td>"
+                tableAppItem += "<td>" + item["UserName"] + "</td>"
+                tableAppItem += "<td>" + item["SubjectApp"] + "</td>"
+                tableAppItem += "<td>" + item["LinkDemontration"] + "</td>"
+                tableAppItem += "<td>" + item["LinkShare"] + "</td>"
+                tableAppItem += "<td>" + item["AppInstall"] + "</td>"
+                tableAppItem += "<td>" + item["AppOpen"] + "</td>"
+                tableAppItem += "</tr>"
+                tableAllAppItems += tableAppItem
+                if (item["LinkDemontration"] != "0" || item["LinkShare"] != "0") {
+                    tableActivateAppItems += tableAppItem
+                }
+            }
+            $('#app-data-statistics-table').html(appTableHeader + tableAllAppItems)
+            $('#activate-app-data-statistics-table').html(appTableHeader + tableActivateAppItems)
+
+        })
+    }
+
+
+
+    var updateReturnVisit = function () {
+        var target = $(this).parent().parent();
+        var userId = $(this).attr('id');
+        var returnVisitResult = target.find(".returnVisitResult").val();
+        var returnVisitTime = target.find(".returnVisitTime").val();
+        var isConfirmed = confirm('是否更新？');
+        if (isConfirmed) {
+            $.post('/this-is-a-clandestine-resource/update/return-visit', {
+                    id                  : userId,
+                    returnVisitResult   : returnVisitResult,
+                    returnVisitTime     : returnVisitTime
+            }, function(result) {
+                if(result.error) {
+                    alert(result.error);
+                } else {
+                    if (returnVisitResult == "") {
+                        target.find(".returnVisitResult").val("Empty ^_^");
+                    }
+                    alert("更新成功");
+                }
+            }).fail(function(err) {
+                alert("更新失败")
+            });
+        }
+    }
+
+    var freezeUser = function() {
+        var userId = $(this).attr('id');
+        var isConfirmed = confirm('是否冻结？');
+        var thisBtn = this
+        if (isConfirmed) {
+            $.post('/this-is-a-clandestine-resource/freeze', {
+                    id  : userId
+            }, function(result) {
+                if(result.error) {
+                    alert(result.error);
+                } else {
+                    alert("冻结成功");
+                    $(thisBtn).removeClass("btn-danger freeze")
+                           .addClass("btn-warning unfreeze")
+                           .html("解封")
+                           .unbind('click')
+                           .bind('click', unfreezeUser)
+                }
+            });
+        }
+    }
+    var unfreezeUser = function() {
+        var userId = $(this).attr('id');
+        var isConfirmed = confirm('是否解冻？');
+        var thisBtn = this;
+        if (isConfirmed) {
+            $.post('/this-is-a-clandestine-resource/unfreeze', {
+                    id  : userId
+            }, function(result) {
+                if(result.error) {
+                    alert(result.error);
+                } else {
+                    alert("解冻成功");
+                    $(thisBtn).removeClass("btn-warning unfreeze")
+                           .addClass("btn-danger freeze")
+                           .html("冻结")
+                           .unbind('click')
+                           .bind('click', freezeUser)
+                }
+            });
+        }
+    }
+    WriteData()
+    </script>
+</body>
+
+</html>

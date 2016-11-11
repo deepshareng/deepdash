@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?915d820c1ff22f1193bf4eece86e392b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>Dashboard - DeepShare Admin</title>
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="Bookmark" href="/assets/images/favicon.ico">
+    <!-- page specific plugin styles -->
+    <!-- md5 settings handler -->
+    <script src="/assets/js/md5.js"></script>
+    <style>
+    body {
+        background-image: url("/assets/images/bg.png");
+        background-size: 100% auto;
+    }
+
+    ​ #login {
+        margin: auto;
+        clear: both;
+        margin-left: 43%;
+        margin-top: 3%;
+    }
+
+    ​ #btn {
+        margin: auto;
+        clear: both;
+        margin-left: 38%;
+        margin-top: 1%;
+        ​
+    }
+
+    .pop-box {
+        z-index: 9999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        display: none;
+    }
+
+    .pop-box3 {
+        z-index: 9999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+
+    .pop-box1 {
+        z-index: 8999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+
+    .pop-box2 {
+        z-index: 7999;
+        /*这个数值要足够大，才能够显示在最上层*/
+        position: absolute;
+        background: #FFF;
+    }
+    </style>
+</head>
+​
+
+<body style='background-image: url("/assets/images/bg_blue.png"); background-size: 100% auto;'>
+    <div id="logo" style="margin:auto; clear:both; margin-left:38%; margin-top:7.5%;">
+        <a href="/">
+            <img src="/assets/images/logo.png" width="39%" height="100%">
+        </a>
+    </div>
+    ​
+    <div id="login" style='margin:auto;clear:both;margin-left:39%;margin-top:1.4%;'> <img src="/assets/images/Register your account.png" width="25%"></div>
+    <div class="container col-sm-4 col-sm-offset-4 " style="margin-top:0.8%">
+        <div class="loginBox row">
+            <div name="wyccn" class="form-horizontal">
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <input class="form-control" name="username" placeholder="请输入邮箱作为用户名" value="" id="username_login" style="opacity:0.4;background-color:black; color:white; ">
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <div>
+                            <input type="password" class="form-control" name="password" placeholder="请输入密码" id="password_login" style="opacity:0.4;background-color:black; color:white;">
+                        </div>
+                        <div>
+                            <input type="password" class="form-control" name="password" placeholder="请再次输入密码" id="password_login_again" style="opacity:0.4;background-color:black; color:white;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <input type="text" class="form-control" name="appname" placeholder="app名称" id="appname" style="opacity:0.4;background-color:black; color:white;">
+                    </div>
+                </div>
+
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <input type="text" class="form-control" name="phone" placeholder="您的联系电话" id="phone" style="opacity:0.4;background-color:black; color:white;">
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                    <div class="col-sm-9 col-md-9" style="margin:auto;clear:both;margin-left:13%;margin-top:0%; margin-right:13%">
+                        <label for="source" class="control-label">从哪知道的Deepshare</label>
+                        <br />
+                        <select onchange = "registerSourceSelectChange()" id="source-select">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="g1">我认识你们公司的人</option>
+                            <option value="g2">我看了关于 DeepShare 的媒体报道</option>
+                            <option value="g3">有朋友给我推荐的</option>
+                            <option value="g4">你们公司有同事主动联络了我们介绍 DeepShare 产品</option>
+                            <option value="g5">我在兔展看到的</option>
+                            <option value="else">其他</option>
+                        </select>
+                        <input type="text" class="form-control" name="source-text" placeholder="其他来源" id="source-text" style="display: none;opacity:0.4;background-color:black;">
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-center" style="color: #990033;">
+                        <text id="wrongInfo" class="col-sm-12 text-danger"></text>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12 text-center">
+                        <button id="registerFormSubmitButton" class="btn" onclick="registerSubmitToBackEnd()" style="border-radius:30px; width:75%; color:black; background-color:white">提 交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- basic scripts -->
+    <style type="text/css">
+    .code {
+        font-family: Arial;
+        font-style: italic;
+        color: Red;
+        border: 0;
+        padding: 2px 3px;
+        letter-spacing: 3px;
+        font-weight: bolder;
+    }
+
+    .unchanged {
+        border: 0;
+    }
+    </style>
+    <script type="text/javascript">
+    window.jQuery || document.write("<script src='/assets/js/jquery/jquery.js'>" + "<" + "/script>");
+    </script>
+    <script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+    </script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <!-- page specific plugin scripts -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("input").click(function() {
+            $(this).css({
+                "background-color": "black",
+                "opacity": "0.6"
+            });
+        });
+    });
+
+    var code; //在全局 定义验证码
+    function createCode() {
+        code = "";
+        var codeLength = 6; //验证码的长度
+        var checkCode = document.getElementById("checkCode");
+        var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+        for (var i = 0; i < codeLength; i++) {
+            var charIndex = Math.floor(Math.random() * 36);
+            code += selectChar[charIndex];
+        }
+        if (checkCode) {
+            checkCode.className = "code";
+            checkCode.value = code;
+            checkCode.blur();
+        }
+    }
+
+    var userName = $("#username_login");
+    userName.blur(function() {
+        $("#wrongInfo").html("");
+
+        if ($("#username_login").val() == "") {
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/session/checkusername",
+            data: {
+                "username": $("#username_login").val(),
+            },
+            success: function(result) {
+                if (result.success) {
+                    $("#wrongInfo").html("用户名已经存在，不能注册！");
+                    $("#password_login").val("");
+                    $("#password_login_again").val("");
+                } else {
+
+                }
+            },
+            error: function(data) {
+                alert("error:" + data.responseText);
+            }
+        });
+    });
+
+    function checkthebox() {
+        $("#user_agree_box").prop("checked", true)
+    }
+
+    function popupDiv(div_id) {
+        $("#" + div_id).animate({
+            opacity: "show"
+        }, "slow");
+    }
+
+    function hideDiv(div_id) {
+        $("#" + div_id).animate({
+            opacity: "hide"
+        }, "slow");
+    }
+
+   function registerSourceSelectChange() {
+        if ($('#source-select').val() == "else") {
+            $('#source-text').show();
+        } else {
+            $('#source-text').hide();
+        }
+    }
+
+    function registerSubmitToBackEnd() {
+        $('#registerFormSubmitButton').attr("disabled", true);
+        var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+        if ($("#username_login").val() == "") {
+            $("#wrongInfo").html("请输入邮箱");
+            $('#registerFormSubmitButton').removeAttr("disabled");
+            return;
+        }
+
+        if (!reg.test($("#username_login").val())) {
+            $("#wrongInfo").html("请输入正确的邮箱地址");
+            $('#registerFormSubmitButton').removeAttr("disabled");
+            return;
+        }
+
+        if ($("#password_login").val() == "" || $("#password_login_again").val() == "") {
+            $("#wrongInfo").html("请输入密码");
+            $('#registerFormSubmitButton').removeAttr("disabled");
+            return;
+        }
+        if ($("#appname").val() == "") {
+            $("#wrongInfo").html("请提供您的app名称");
+            $('#registerFormSubmitButton').removeAttr("disabled");
+            return;
+        }
+
+        if ($("#phone").val() == "") {
+            $("#wrongInfo").html("请提供您的联系电话");
+            $('#registerFormSubmitButton').removeAttr("disabled");
+            return;
+        }
+
+        if ($("#source-select").val() == null || $("#source-select").val() == "else" && $("#source-text").val() == "") {
+            $("#wrongInfo").html("请告诉我们您从哪知道的Deepshare");
+            $('#registerFormSubmitButton').removeAttr("disabled");
+            return;
+        }
+        sourceText = $('#source-select option:selected').text()
+        if (sourceText == "其他") {
+            sourceText += $("#source-text").val()
+        }
+
+        if ($("#password_login").val() == $("#password_login_again").val()) {
+            $.ajax({
+                type: "POST",
+                url: "/this-is-a-clandestine-resource/users",
+                data: {
+                    "username": $("#username_login").val(),
+                    "password": $("#password_login").val(),
+                    "appname" : $("#appname").val(),
+                    "phone" : $("#phone").val(),
+                    "source" :  sourceText,
+                },
+                success: function(result) {
+                    alert("已向您注册邮箱发送激活链接，请在您的邮箱接收邮件激活帐户");
+                    location.href = {{.LoginURL}}
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    $("#wrongInfo").html("");
+                    $("#wrongInfo").html("注册失败,请确认填写的准确的注册信息");
+                    $('#registerFormSubmitButton').removeAttr("disabled");
+                },
+                complete: function(xhr, statusText) {
+
+                }
+            });
+        } else {
+            $("#wrongInfo").html("");
+            $("#wrongInfo").html("两次输入密码不一致");
+            $('#registerFormSubmitButton').removeAttr("disabled");
+        }
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        include ./head.jade
+        style.
+            .popover {max-width: none;}
+    body
+        div#wrapper
+            include ./nav.jade
+
+            div#page-wrapper(style="min-height: 537px")
+                div#index-app
+                    div.text-center.loader-inner.ball-pulse(style="padding: 320px 0")
+                        div
+                        div
+                        div
+                include ./footer.jade
+                include ./modal.jade
+                include ./login-modal.jade
+                include ./confirm-modal.jade
+
+        include ./script.jade
+        script.
+            var sessionAppId = '{{ .AppID }}';
+            var appIndex = 0;
+            var appNames = [];
+            
+            var DSGLOBAL = {
+                initComponent: function() {
+                    
+                }, 
+            };
+        script(src="/assets/v2/js/index.js?_=#{dsTimeStamp}")

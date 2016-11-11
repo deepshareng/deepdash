@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+
+# gulp tmp html files
+ux/html/*.html
+
+#IDEA
+.idea

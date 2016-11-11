@@ -1,0 +1,13 @@
+FROM r.fds.so:5000/golang1.5.3
+
+
+ADD . /go/src/github.com/MISingularity/deepdash
+WORKDIR /go/src/github.com/MISingularity/deepdash
+RUN go get github.com/tools/godep
+RUN godep go build -o redis /go/src/github.com/MISingularity/deepdash/cmd/refresh_redis_appinfo/main.go
+CMD /go/src/github.com/MISingularity/deepdash/redis
+
+# arguments for redis-update-server
+## appinfo-addr  | null   | Specify the appinfo address
+## mongo-addr    | null   | Specify the raw data mongo database URL
+
